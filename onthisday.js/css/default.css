@@ -34,7 +34,6 @@
         }
 
             .fragment header[role=banner] .titlearea .pagetitle {
-                width: calc(100% - 20px);
             }
 
     .fragment section[role=main] {

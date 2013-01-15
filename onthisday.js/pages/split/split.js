@@ -47,7 +47,16 @@
             this._items = Data.getItemsFromGroup(this._group);
             this._itemSelectionIndex = (options && "selectedIndex" in options) ? options.selectedIndex : -1;
 
-            element.querySelector("header[role=banner] .pagetitle").textContent = this._group.title;
+            // select the value in the header
+            var selector = element.querySelector("header[role=banner] .pagetitle");
+            var selectedValue = this._group.title;
+            for (var i = 0; i < selector.length; i++) {
+                if (selector[i].value === selectedValue)
+                    selector[i].selected = true;
+            }
+            setTimeout(function () {
+                $("header[role=banner] .pagetitle").addClass('titleLoaded');
+            }, 1000);
 
             // Set up the ListView.
             listView.itemDataSource = this._items.dataSource;

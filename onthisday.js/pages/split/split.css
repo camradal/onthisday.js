@@ -15,8 +15,19 @@
     }
 
     .splitpage header[role=banner] .pagetitle {
-        overflow: hidden;
-        width: calc(100% - 20px);
+        transition : border 600ms ease-out; 
+        margin: 0;
+        border : 1px solid ActiveBorder;
+        font-size: 42pt;
+        font-weight: 200;
+    }
+
+    .titleLoaded {
+        border : 1px solid transparent !important;
+    }
+
+    .splitpage header[role=banner] .pagetitle:hover{
+        border : 1px solid ActiveBorder !important; 
     }
 
     .splitpage .itemlistsection {
