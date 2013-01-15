@@ -62,6 +62,7 @@
     <Content Include="js\default.js" />
     <Content Include="js\navigator.js" />
     <Content Include="js\onthisday.js" />
+    <Content Include="js\share.js" />
     <Content Include="packages.config" />
     <Content Include="pages\items\items.css" />
     <Content Include="pages\items\items.html" />

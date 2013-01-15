@@ -26,6 +26,8 @@
             item.subtitle = link.title;
             binding.processAll(details, item);
             $('#loader').hide();
+
+            share.setSharedItem(item);
         });
     }
 
