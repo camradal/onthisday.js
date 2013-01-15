@@ -1,48 +1,31 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/2010/manifest">
-
-  <Identity
-    Name="3b5ff641-ae6d-4c4c-a4cc-0aa736bed69c"
-    Version="1.0.0.0"
-    Publisher="CN=Alexey" />
-
+  <Identity Name="3b5ff641-ae6d-4c4c-a4cc-0aa736bed69c" Version="1.0.0.0" Publisher="CN=Alexey" />
   <Properties>
     <DisplayName>onthisday.js</DisplayName>
     <PublisherDisplayName>Alexey</PublisherDisplayName>
     <Logo>images\storelogo.png</Logo>
   </Properties>
-
   <Prerequisites>
     <OSMinVersion>6.2.1</OSMinVersion>
     <OSMaxVersionTested>6.2.1</OSMaxVersionTested>
   </Prerequisites>
-
   <Resources>
     <Resource Language="x-generate" />
   </Resources>
-
   <Applications>
-    <Application 
-      Id="App"
-      StartPage="default.html">
-
-      <VisualElements
-        DisplayName="onthisday.js"
-        Logo="images\logo.png"
-        SmallLogo="images\smalllogo.png"
-        Description="onthisday.js"
-        ForegroundText="light"
-        BackgroundColor="#464646">
-
-        <DefaultTile ShowName="allLogos" />
-        <SplashScreen Image="images\splashscreen.png" />
-
+    <Application Id="App" StartPage="default.html">
+      <VisualElements DisplayName="On This Day..." Logo="images\logo.png" SmallLogo="images\smalllogo.png" Description="onthisday.js" ForegroundText="light" BackgroundColor="#003855">
+        <DefaultTile ShowName="allLogos" ShortName="On This Day..." />
+        <SplashScreen Image="images\splashscreen.png" BackgroundColor="#003855" />
+        <InitialRotationPreference>
+          <Rotation Preference="landscape" />
+          <Rotation Preference="landscapeFlipped" />
+        </InitialRotationPreference>
       </VisualElements>
     </Application>
   </Applications>
-
   <Capabilities>
     <Capability Name="internetClient" />
   </Capabilities>
-
 </Package>
