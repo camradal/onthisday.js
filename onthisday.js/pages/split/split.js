@@ -58,7 +58,7 @@
             }
             setTimeout(function () {
                 $("header[role=banner] .pagetitle").addClass('titleLoaded');
-            }, 1000);
+            }, 600);
 
             // Set up the ListView.
             listView.itemDataSource = this._items.dataSource;
