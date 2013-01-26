@@ -15,6 +15,26 @@
 
             this._initializeLayout(listView, Windows.UI.ViewManagement.ApplicationView.value);
             listView.element.focus();
+            
+            var control = document.getElementById('datePicker').winControl;
+            control.current = Data.getDate();
+
+            $('#datePicker').change(function () {
+                var date = this.winControl.current;
+                Data.reload(date);
+            });
+            $('#nextButton').click(function () {
+                var date = control.current;
+                date = onthisday.incrementDate(date);
+                control.current = date;
+                Data.reload(date);
+            });
+            $('#prevButton').click(function () {
+                var date = control.current;
+                date = onthisday.decrementDate(date);
+                control.current = date;
+                Data.reload(date);
+            });
         },
 
         // This function updates the page layout in response to viewState changes.

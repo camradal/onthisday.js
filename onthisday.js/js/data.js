@@ -11,13 +11,20 @@
     loadData();
 
     WinJS.Namespace.define("Data", {
+        getDate: getDate,
+        reload: reload,
         items: groupedItems,
         groups: groupedItems.groups,
         getItemReference: getItemReference,
         getItemsFromGroup: getItemsFromGroup,
         resolveGroupReference: resolveGroupReference,
+        resolveGroupReferenceByTitle: resolveGroupReferenceByTitle,
         resolveItemReference: resolveItemReference
     });
+
+    function getDate() {
+        return currentDate;
+    }
 
     // Get a reference for an item, using the group key and item title as a
     // unique reference to the item that can be easily serialized.
@@ -35,6 +42,15 @@
     function resolveGroupReference(key) {
         for (var i = 0; i < groupedItems.groups.length; i++) {
             if (groupedItems.groups.getAt(i).key === key) {
+                return groupedItems.groups.getAt(i);
+            }
+        }
+    }
+    
+    // Get the unique group corresponding to the provided group key.
+    function resolveGroupReferenceByTitle(title) {
+        for (var i = 0; i < groupedItems.groups.length; i++) {
+            if (groupedItems.groups.getAt(i).title === title) {
                 return groupedItems.groups.getAt(i);
             }
         }
@@ -69,6 +85,12 @@
         }
         return items;
     };
+    
+    function reload(date) {
+        currentDate = date;
+        list = new WinJS.Binding.List();
+        loadData(date);
+    }
 
     function loadData(date) {
         if (!date) {
