@@ -79,8 +79,8 @@
 /* Select time buttons */
 .currentDate {
 	-ms-grid-column: 5;
-	margin-top: 25px;
-	margin-bottom: 25px;
+	margin-top: 35px;
+	margin-bottom: 10px;
 }
 
 .currentDate .win-datepicker-year {
@@ -89,10 +89,10 @@
 
 .prevDay {
 	-ms-grid-column: 4;
-	margin: 30px 20px;
+	margin: 40px 20px 15px;
 }
 
 .nextDay {
 	-ms-grid-column: 6;
-	margin: 30px 20px 30px 0px;
+	margin: 40px 60px 15px 0px;
 }
