@@ -68,14 +68,18 @@
                 title: el.title,
                 description: el.innerText
             };
-            links.push(boldLink);
+            if (!$.isNumeric(boldLink.title)) {
+                links.push(boldLink);
+            }
         });
         $('a', ctx).each(function (i, el) {
             var link = {
                 title: el.title,
                 description: el.innerText
             };
-            links.push(link);
+            if (!$.isNumeric(link.title)) {
+                links.push(link);
+            }
         });
         return links;
     };
