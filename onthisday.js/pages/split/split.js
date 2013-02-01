@@ -50,14 +50,20 @@
             this._itemSelectionIndex = (options && "selectedIndex" in options) ? options.selectedIndex : -1;
 
             // select the value in the header
-            var selector = element.querySelector("header[role=banner] .pagetitle");
             var selectedValue = this._group.title;
-            for (var i = 0; i < selector.length; i++) {
-                if (selector[i].value === selectedValue)
-                    selector[i].selected = true;
-            }
+            var selector = $("header[role=banner] .pagetitle");
+            selector.val(selectedValue);
+            selector.change(function () {
+                var that = $(this);
+                var groupKey = that.val();
+                that._group = groupKey ? Data.resolveGroupReferenceByTitle(groupKey) : Data.groups.getAt(0);
+                that._items = Data.getItemsFromGroup(that._group);
+                that._itemSelectionIndex = 0;
+                listView.itemDataSource = that._items.dataSource;
+                listView.selection.set(Math.max(that._itemSelectionIndex, 0));
+            });
             setTimeout(function () {
-                $("header[role=banner] .pagetitle").addClass('titleLoaded');
+                selector.addClass('titleLoaded');
             }, 600);
 
             // Set up the ListView.
