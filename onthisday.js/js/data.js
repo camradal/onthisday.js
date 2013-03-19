@@ -120,13 +120,20 @@
             })
         ];
 
-        WinJS.Promise.join(promises).done(function (data) {
-            // now push items into the list
-            for (var i = 0; i < data.length; i++) {
-                for (var j = 0; j < data[i].length; j++) {
-                    list.push(data[i][j]);
+        WinJS.Promise.join(promises).done(
+            function success(data) {
+                // now push items into the list
+                for (var i = 0; i < data.length; i++) {
+                    for (var j = 0; j < data[i].length; j++) {
+                        list.push(data[i][j]);
+                    }
                 }
+            },
+            function error(data) {
+                // TODO: hook up to error reporting
+                var message = new Windows.UI.Popups.MessageDialog("Oops! We've encountered an error loading the data. Please try again later.");
+                message.showAsync();
             }
-        });
+        );
     }
 })();
