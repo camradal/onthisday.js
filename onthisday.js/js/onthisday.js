@@ -45,7 +45,8 @@
     var extractEntries = function (text) {
         var items = [];
         var dom = $(text);
-        $('li', dom).each(function (i, el) {
+        var rootList = dom.closest('ul');
+        $('li', rootList).each(function (i, el) {
             var split = el.innerText.split(' – ', 2);
             if (split.length === 2) {
                 var links = findLinks(el);
